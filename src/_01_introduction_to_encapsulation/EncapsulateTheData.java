@@ -15,20 +15,66 @@ package _01_introduction_to_encapsulation;
  * 
  * */
 
-
 public class EncapsulateTheData {
-	//1. Encapsulate the member variables.
-	//   Add restrictions to the setters according to the comment.
-	
-	//2. Create a new JUnit Test case and write tests to verify that 
-	//   the member variables' getters and setters are working
-	
-	int itemsRecieved; //must not be negative. All negative arguments get set to 0.
-	float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
-	String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
-	Object memberObj; //can be any object type except String. Strings get turned into objects.
-	
+	// 1. Encapsulate the member variables.
+	// Add restrictions to the setters according to the comment.
+
+	// 2. Create a new JUnit Test case and write tests to verify that
+	// the member variables' getters and setters are working
+
+	private int itemsRecieved; // must not be negative. All negative arguments get set to 0.
+	private float degreesTurned; // must be locked between 0.0 and 360.0 inclusive.
+	private String nomenclature = " "; // must not be set to a blank string. Blank Strings get set to a space
+	private Object memberObj; // can be any object type except String. Strings get turned into objects.
+
+	int getItemsRecieved() {
+		return itemsRecieved;
+	}
+
+	void setItemsRecieved(int x) {
+		if (x >= 0) {
+			itemsRecieved = x;
+		} else {
+			itemsRecieved = 0;
+		}
+	}
+
+	float getDegreesTurned() {
+		return degreesTurned;
+	}
+
+	void setDegreesTurned(float x) {
+		if (x >= 0.0 && x <= 360.0) {
+			degreesTurned = x;
+		}
+	}
+
+	String getNomenclature() {
+		return nomenclature;
+	}
+
+	void setNomenclature(String s) {
+		if (s.equals("")) {
+			nomenclature = " ";
+		} else {
+			nomenclature = s;
+		}
+	}
+
+	Object getMemberObj() {
+		return memberObj;
+	}
+
+	void setMemberObj(Object o) {
+		if (o instanceof String) {
+			o = (Object) o;
+			memberObj = o;
+		} else {
+			memberObj = o;
+		}
+	}
+
 	public static void main(String[] args) {
-		
+
 	}
 }
